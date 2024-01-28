@@ -7,6 +7,10 @@
 "api","client"
   ],
   "scripts": {
+    "api:build": "cd api && pnpm build",
+    "api:watch": "cd api && pnpm build && node api/index.js --watch",
+    "c:dev": "cd client && pnpm dev",
+    "c:build": "cd client && pnpm build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0"
   },
