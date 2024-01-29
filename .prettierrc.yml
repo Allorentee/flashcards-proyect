@@ -1,7 +1,3 @@
-plugins:
-  - '@trivago/prettier-plugin-sort-imports'
-  - 'prettier-plugin-tailwindcss'
-
 singleQuote: true
 trailingComma: 'none'
 semi: false
@@ -10,11 +6,3 @@ arrowParens: 'avoid'
 printWidth: 110
 bracketSameLine: true
 endOfLine: 'crlf'
-
-importOrder:
-  - '^react$'
-  - '^[@]*[a-z0-9](.*)$'
-  - '^@/(.*)$'
-  - '^[.]+/(.*)$'
-importOrderSeparation: true
-importOrderSortSpecifiers: true
