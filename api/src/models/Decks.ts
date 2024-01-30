@@ -1,7 +1,7 @@
-import { DataTypes } from 'sequelize'
+import { DataTypes, Model, InferAttributes, InferCreationAttributes, CreationOptional } from 'sequelize'
 
 import { sequelize } from '../utils/dbutils.js'
-import { Cards } from './Cards.js'
+import { Card, Cards } from './Cards.js'
 import { Users } from './Users.js'
 
 export const Decks = sequelize.define(
@@ -45,3 +45,14 @@ Cards.belongsTo(Decks, {
 // Many to Many
 Decks.belongsToMany(Users, { through: 'userCollections' })
 Users.belongsToMany(Decks, { through: 'userCollections' })
+
+export class Deck extends Model<InferAttributes<Deck>, InferCreationAttributes<Deck>> {
+  declare id: CreationOptional<string>
+  declare name: string
+  declare inCommunity: boolean
+  declare description: string
+}
+
+export class DeckWithCards extends Deck {
+  declare cards: Card[]
+}

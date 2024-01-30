@@ -1,59 +1,36 @@
 import { Request, Response } from 'express'
+import { catchErrors } from '../../../errors/asyncHandleErrors.js'
+import { DeckService } from '../services/DeckService.js'
 
-import { CardDeckService } from '../services/DeckService.js'
-import { CardDeckPorts } from './controllerInterface.js'
+const service = DeckService()
 
-export class CardDeckController implements CardDeckPorts {
-  cardControllerService = new CardDeckService()
+export const getAll = catchErrors(async (_req: Request, res: Response) => {
+  const items = await service.getAll()
+  res.status(200).json(items)
+})
 
-  getAll = async (_req: Request, res: Response) => {
-    try {
-      const items = await this.cardControllerService.getAll()
-      res.status(200).json(items)
-    } catch (e: any) {
-      console.log(e.message)
-    }
-  }
+export const getOne = catchErrors(async (req: Request, res: Response) => {
+  const deckID = req.params.id
+  const items = await service.getOne(deckID)
+  res.status(200).json(items)
+})
 
-  getOne = async (req: Request, res: Response) => {
-    try {
-      const deckID = req.params.id
-      const items = await this.cardControllerService.getOne(deckID)
-      res.status(200).json(items)
-    } catch (e: any) {
-      console.log(e.message)
-    }
-  }
+export const create = catchErrors(async (req: Request, res: Response) => {
+  const data = req.body
+  const item = await service.create(data)
+  res.status(200).json(item)
+})
 
-  create = async (req: Request, res: Response) => {
-    try {
-      const data = req.body
-      const item = await this.cardControllerService.create(data)
-      res.status(200).json(item)
-    } catch (e: any) {
-      console.log(e.message)
-    }
-  }
+export const update = catchErrors(async (req: Request, res: Response) => {
+  const id = req.params.id
+  const data = req.body
+  const item = await service.update(id, data)
+  res.status(200).json(item)
+})
 
-  update = async (req: Request, res: Response) => {
-    try {
-      const id = req.params.id
-      const data = req.body
-      const item = await this.cardControllerService.update(id, data)
-      res.status(200).json(item)
-    } catch (e: any) {
-      console.log(e.message)
-    }
-  }
-
-  delete = async (req: Request, res: Response) => {
-    try {
-      const id = req.params.id
-      await this.cardControllerService.delete(id)
-      res.status(200)
-    } catch (e: any) {
-      console.log(e.message)
-    }
-  }
-}
+export const destroy = catchErrors(async (req: Request, res: Response) => {
+  const id = req.params.id
+  await service.deleteService(id)
+  res.status(200)
+})
 

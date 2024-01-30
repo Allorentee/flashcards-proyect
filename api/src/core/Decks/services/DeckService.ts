@@ -1,38 +1,45 @@
-import { Deck as DeckContract } from 'contract/Deck.js'
 import { Cards } from '../../../models/Cards.js'
+import { Deck, Decks } from '../../../models/Decks.js'
 import { CardRepository } from '../../Cards/repository/CardRepository.js'
 import { CardDeckRepository } from '../repository/DeckRepository.js'
 import { DeckUseCases } from './useCases.js'
-import { Decks } from '../../../models/Decks.js'
 
-export class CardDeckService implements DeckUseCases {
-  cardDeckRepository = new CardDeckRepository(Decks)
-  cardRepository = new CardRepository(Cards)
+export function DeckService(): DeckUseCases {
+  const cardDeckRepository = new CardDeckRepository(Decks)
+  const cardRepository = new CardRepository(Cards)
 
-  getAll = async () => {
-    const response = await this.cardDeckRepository.getAll()
+  const getAll = async () => {
+    const response = await cardDeckRepository.getAll()
     return response
   }
 
-  getOne = async (deckID: string) => {
-    const cards = await this.cardRepository.getCardsByDeckID(deckID)
-    const deck = await this.cardDeckRepository.getOne(deckID)
+  const getOne = async (deckID: string) => {
+    const cards = await cardRepository.getCardsByDeckID(deckID)
+    const deck = await cardDeckRepository.getOne(deckID)
     const collectionMapped = { ...deck.dataValues, cards }
     return collectionMapped
   }
 
-  create = async (data: Partial<DeckContract>) => {
-    const reponse = await this.cardDeckRepository.create(data)
+  const create = async (data: Partial<Deck>) => {
+    const reponse = await cardDeckRepository.create(data)
     return reponse
   }
 
-  update = async (id: string, data: Partial<DeckContract>) => {
-    const response = await this.cardDeckRepository.update(id, data)
+  const update = async (id: string, data: Partial<Deck>) => {
+    const response = await cardDeckRepository.update(id, data)
     return response
   }
 
-  delete = async (id: string) => {
-    await this.cardDeckRepository.destroy(id)
+  const deleteService = async (id: string) => {
+    await cardDeckRepository.destroy(id)
+  }
+
+  return {
+    getAll,
+    create,
+    getOne,
+    update,
+    deleteService
   }
 }
 

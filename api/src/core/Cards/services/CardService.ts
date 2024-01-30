@@ -1,7 +1,6 @@
-import { Cards } from '../../../models/Cards.js'
+import { Card, Cards } from '../../../models/Cards.js'
 import { CardRepository } from '../repository/CardRepository.js'
 import { CardUseCases } from './CardService.interface.js'
-import { Card } from '../../../../../contract/index.js'
 
 export class CardService implements CardUseCases {
   cardRepository = new CardRepository(Cards)

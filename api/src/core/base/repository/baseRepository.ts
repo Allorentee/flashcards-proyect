@@ -1,7 +1,6 @@
 import { Model } from 'sequelize'
 
 import { BaseRepositoryInterface } from './baseInterface.js'
-
 export class BaseRepository<T extends Model> implements BaseRepositoryInterface<T> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private model: any

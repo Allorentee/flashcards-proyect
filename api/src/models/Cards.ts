@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize'
+import { CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model } from 'sequelize'
 
 import { sequelize } from '../utils/dbutils.js'
 
@@ -30,3 +30,11 @@ const Cards = sequelize.define(
 )
 
 export { Cards }
+
+export class Card extends Model<InferAttributes<Card>, InferCreationAttributes<Card>> {
+  declare id: CreationOptional<string>
+  declare front: string
+  declare back: string
+  declare example: string
+  declare deckID: CreationOptional<string>
+}

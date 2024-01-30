@@ -1,13 +1,12 @@
 import { BaseRepository } from '../../base/repository/index.js'
-import { Cards } from '../../../models/Cards.js'
+import { Card, Cards } from '../../../models/Cards.js'
 
 import { CardPorts } from './CardRepository.interface.js'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export class CardRepository extends BaseRepository<any> implements CardPorts {
+export class CardRepository extends BaseRepository<Card> implements CardPorts {
   getCardsByDeckID = async (deckID: string) => {
     const cards = await Cards.findAll({ where: { deckID } })
-    return cards
+    return cards as Card[]
   }
 }
 
