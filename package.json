@@ -1,6 +1,6 @@
 {
   "name": "flashcards-proyect",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "workspaces": [
@@ -33,4 +33,3 @@
     "prettier": "^3.2.4"
   }
 }
-
