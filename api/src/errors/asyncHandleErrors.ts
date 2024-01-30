@@ -10,12 +10,3 @@ export const catchErrors = (requestHandler: RequestHandler) => {
   }
 }
 
-export const catchs =
-  (requesthandle: RequestHandler) => async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      return await requesthandle(req, res, next)
-    } catch (error) {
-      next(error)
-    }
-  }
-

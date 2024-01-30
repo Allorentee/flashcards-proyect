@@ -10,6 +10,7 @@ import { cardRoute } from './routes/card.routes.js'
 import { cardDeckRoute } from './routes/cardDeck.routes.js'
 import { sequelize } from './utils/dbutils.js'
 import { ConnectionError } from './errors/errorsFactory.js'
+import { handleErrors } from './middleware/errors.js'
 
 export const app = express()
 app.use(express.json())
@@ -20,6 +21,7 @@ app.get('/', (_req, res) => {
 })
 app.use('/decks', cardDeckRoute)
 app.use('/cards', cardRoute)
+app.use(handleErrors)
 
 export async function connect() {
   try {
