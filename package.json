@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "api:build": "cd api && pnpm build",
-    "api:watch": "cd api && pnpm build && node api/index.js --watch",
+    "api:watch": "cd api &&  node dist/api//src/index.js --watch",
     "c:dev": "cd client && pnpm dev",
     "c:build": "cd client && pnpm build",
     "test": "echo \"Error: no test specified\" && exit 1",
