@@ -9,7 +9,6 @@ import './models/Users.js'
 import { cardRoute } from './routes/card.routes.js'
 import { cardDeckRoute } from './routes/cardDeck.routes.js'
 import { sequelize } from './utils/dbutils.js'
-import { ConnectionError } from './errors/errorsFactory.js'
 import { handleErrors } from './middleware/errors.js'
 
 export const app = express()
@@ -28,7 +27,7 @@ export async function connect() {
     await sequelize.sync({ alter: true })
     console.log('Correct ✅')
   } catch (e) {
-    throw new ConnectionError('Error')
+    console.log(e)
   }
 }
 
