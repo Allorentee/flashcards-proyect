@@ -1,17 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import { ThemeProvider } from 'styled-components'
-import { lightTheme } from './theme/theme.ts'
-import NormalizeStyles from './theme/baseStyles.ts'
+import { BrowserRouter } from 'react-router-dom'
+import { Approutes } from './components/routes/app.routes.tsx'
+import { Layout } from './components/layout/Layout.tsx'
+import './index.css'
 ;('use client')
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <NormalizeStyles />
-    <ThemeProvider theme={lightTheme}>
-      <App />
-    </ThemeProvider>
+    <BrowserRouter>
+      <Layout>
+        <Approutes />
+      </Layout>
+    </BrowserRouter>
   </React.StrictMode>
 )
 

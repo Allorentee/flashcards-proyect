@@ -8,9 +8,8 @@
     "client"
   ],
   "scripts": {
-    "api:build": "cd api && pnpm build:watch",
-    "api:watch": "cd api &&  node dist/api/src/index.js --watch",
-    "api:start": "cd api && pnpm build && node dist/api/src/index.js",
+    "api:build": "cd api && pnpm build",
+    "api:watch": "cd api &&  pnpm build:watch",
     "c:dev": "cd client && pnpm dev",
     "c:build": "cd client && pnpm build",
     "test": "echo \"Error: no test specified\" && exit 1",
