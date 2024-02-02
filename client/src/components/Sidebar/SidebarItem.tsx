@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom'
 import { NavList } from '../layout/Layout'
+import { MenuItem, MenuItemWrapper } from './styles'
 
 const SidebarItem = ({ item }: { item: NavList }) => {
   return (
-    <>
-      <Link to={item.link} className="w-full flex-row-auto ">
-        <div className="flex flex-row justify-between gap-4">
-          <div className="w-6">{item.icon}</div>
-          <div className="hidden">{item.title}</div>
-        </div>
+    <MenuItemWrapper>
+      <Link to={item.link}>
+        <MenuItem>
+          <div style={{ width: '1.5rem' }}>{item.icon}</div>
+          <h2 className="hidden">{item.title}</h2>
+        </MenuItem>
       </Link>
-    </>
+    </MenuItemWrapper>
   )
 }
 

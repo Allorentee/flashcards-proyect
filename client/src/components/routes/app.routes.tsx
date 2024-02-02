@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
-import { Profile } from '../../pages/Profile'
-import { Community } from '../../pages/community'
+import { Profile } from '../../pages/Profile/Profile'
+import { Community } from '../../pages/Community/community'
 
 const Approutes = () => {
   return (

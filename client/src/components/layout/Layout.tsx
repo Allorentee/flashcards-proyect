@@ -2,6 +2,7 @@ import { Sidebar, Upbar } from '..'
 import { ReactNode } from 'react'
 import { ProfileIcon } from '../icons/ProfileIcon'
 import { ExpandIcon } from '../icons'
+import { AppWrapper } from './styles'
 
 export interface NavList {
   title: string
@@ -30,7 +31,7 @@ function Layout({ children }: { children: ReactNode }) {
   ]
 
   return (
-    <div className="flex flex-row min-h-screen">
+    <AppWrapper>
       {/* left */}
       <Sidebar navList={navList} />
       {/* right */}
@@ -41,7 +42,7 @@ function Layout({ children }: { children: ReactNode }) {
           <main className="px-52 py-10 ">{children}</main>
         </div>
       </section>
-    </div>
+    </AppWrapper>
   )
 }
 
