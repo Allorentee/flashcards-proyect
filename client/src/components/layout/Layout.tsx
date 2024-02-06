@@ -15,7 +15,7 @@ function Layout({ children }: { children: ReactNode }) {
   const navList = [
     {
       title: 'Perfil',
-      icon: <ProfileIcon />,
+      icon: <ExpandIcon />,
       link: '/profile'
     },
     {
