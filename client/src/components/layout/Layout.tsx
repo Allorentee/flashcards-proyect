@@ -2,7 +2,7 @@ import { Sidebar, Upbar } from '..'
 import { ReactNode } from 'react'
 import { ProfileIcon } from '../icons/ProfileIcon'
 import { ExpandIcon } from '../icons'
-import { AppWrapper } from './styles'
+import { AppWrapper, MainStyled } from './styles'
 
 export interface NavList {
   title: string
@@ -35,11 +35,11 @@ function Layout({ children }: { children: ReactNode }) {
       {/* left */}
       <Sidebar navList={navList} />
       {/* right */}
-      <section className="flex-auto w-64">
-        <div className="flex flex-col">
+      <section style={{ flex: 1 }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Upbar section={section} />
           {/* main content */}
-          <main className="px-52 py-10 ">{children}</main>
+          <MainStyled className="px-52 py-10 ">{children}</MainStyled>
         </div>
       </section>
     </AppWrapper>

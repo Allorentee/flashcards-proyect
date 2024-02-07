@@ -1,8 +1,6 @@
-const Upbar = ({ section }: { section: string }) => {
-  return (
-    <div className="h-16 bg-sky-950 text-center text-white leading-[4rem] font-bold text-xl">{section}</div>
-  )
-}
+import { UpbarStyled } from './Styles'
 
-export { Upbar }
+export function Upbar({ section }: { section: string }) {
+  return <UpbarStyled>{section}</UpbarStyled>
+}
 

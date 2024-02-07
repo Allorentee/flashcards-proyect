@@ -6,3 +6,7 @@ export const AppWrapper = styled.div`
   min-height: 100dvh;
 `
 
+export const MainStyled = styled.main`
+  padding: 5rem 25rem;
+`
+

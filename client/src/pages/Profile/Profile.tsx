@@ -1,8 +1,6 @@
 import { DeckCollection } from '../../components/DecksCollection/DeckCollection'
 
-const Profile = () => {
+export function Profile() {
   return <DeckCollection />
 }
-
-export { Profile }
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { NavList } from '../layout/Layout'
-import { MenuItem, MenuItemWrapper } from './styles'
+import { MenuItem, MenuItemWrapper } from './Styles'
 
 const SidebarItem = ({ item }: { item: NavList }) => {
   return (

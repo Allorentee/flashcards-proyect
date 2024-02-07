@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 export const Navbar = styled.nav`
   width: 5rem;
+  position: sticky;
+  top: 0;
+  left: 0;
   background-color: lightgray;
   display: flex;
   flex-direction: column;
