@@ -10,7 +10,7 @@ export interface NavList {
   link: string
 }
 
-function Layout({ children }: { children: ReactNode }) {
+export function Layout({ children }: { children: ReactNode }) {
   const section = 'Perfil'
   const navList = [
     {
@@ -35,16 +35,12 @@ function Layout({ children }: { children: ReactNode }) {
       {/* left */}
       <Sidebar navList={navList} />
       {/* right */}
-      <section style={{ flex: 1 }}>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Upbar section={section} />
-          {/* main content */}
-          <MainStyled className="px-52 py-10 ">{children}</MainStyled>
-        </div>
+      <section style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <Upbar section={section} />
+        {/* main content */}
+        <MainStyled>{children}</MainStyled>
       </section>
     </AppWrapper>
   )
 }
-
-export { Layout }
 

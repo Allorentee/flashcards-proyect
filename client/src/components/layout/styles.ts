@@ -7,6 +7,8 @@ export const AppWrapper = styled.div`
 `
 
 export const MainStyled = styled.main`
-  padding: 5rem 25rem;
+  width: 100%;
+  padding: 2rem 4em;
+  margin: 0 auto;
 `
 
