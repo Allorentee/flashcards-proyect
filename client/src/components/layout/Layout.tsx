@@ -1,4 +1,4 @@
-import { Sidebar, Upbar } from '..'
+import { Sidebar } from '..'
 import { ReactNode } from 'react'
 import { ProfileIcon } from '../icons/ProfileIcon'
 import { ExpandIcon } from '../icons'
@@ -11,7 +11,6 @@ export interface NavList {
 }
 
 export function Layout({ children }: { children: ReactNode }) {
-  const section = 'Perfil'
   const navList = [
     {
       title: 'Perfil',
@@ -36,7 +35,6 @@ export function Layout({ children }: { children: ReactNode }) {
       <Sidebar navList={navList} />
       {/* right */}
       <section style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-        <Upbar section={section} />
         {/* main content */}
         <MainStyled>{children}</MainStyled>
       </section>

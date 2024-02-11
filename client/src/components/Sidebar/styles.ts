@@ -1,17 +1,19 @@
 import styled from 'styled-components'
 
 export const Navbar = styled.nav`
-  width: 4.5rem;
+  width: 3rem;
+  max-height: 20rem;
   position: sticky;
-  top: 0;
-  left: 0;
-  background-color: #f0f2f5;
+  top: 25%;
+  left: 0px;
   display: flex;
   flex-direction: column;
   justify-content: start;
+  box-shadow: 0px 0px 20px 5px lightgray;
   align-items: center;
   gap: 4rem;
-  padding: 4px 6px;
+  padding: 4rem 2rem;
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
   border: 1px solid lightgray;
 `
 
